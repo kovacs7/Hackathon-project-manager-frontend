@@ -10,7 +10,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import Logo2 from "../../assets/Logo2.svg";
 import { useParams } from "react-router-dom";
-import Cookies from "js-cookie";
 import { useState } from "react";
 
 const AppMenu = () => {
@@ -19,8 +18,8 @@ const AppMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const removeToken = () => {
-    Cookies.remove("userToken");
-    navigate("/")
+    localStorage.removeItem("userToken");
+    navigate("/");
   };
 
   return (

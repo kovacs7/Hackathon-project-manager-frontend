@@ -12,27 +12,27 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const userLogin = (e) => {
-    e.preventDefault();
-    axios
-      .post("/login", data)
-      .then((res) => {
-        if (res.data.error) {
-          toast.error(res.data.error);
-        }
-        if(res.data.success){
-          toast.success(res.data.success);
-          setData({
-            email: "",
-            password: "",
-          });
-          navigate("/");
-        }
-      })
-      .catch(() =>
-        toast.error("Error occured while connecting to the server.")
-      );
-  };
+ const userLogin = (e) => {
+   e.preventDefault();
+   axios
+     .post("/login", data)
+     .then((res) => {
+       if (res.data.error) {
+         toast.error(res.data.error);
+       } else if (res.data.token) {
+         localStorage.setItem("userToken", res.data.token);
+         toast.success("Successfully logged in!");
+         setData({
+           email: "",
+           password: "",
+         });
+         navigate("/");
+       }
+     })
+     .catch(() =>
+       toast.error("Error occurred while connecting to the server.")
+     );
+ };
 
   return (
     <section className="bg-white">

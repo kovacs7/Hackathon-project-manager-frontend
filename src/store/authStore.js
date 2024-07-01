@@ -6,7 +6,8 @@ const useAccountData = create((set) => ({
   data: {},
   getAccountData: async () => {
     try {
-      const res = await axios.get("/accountsinfo");
+      const userToken = localStorage.getItem("userToken");
+      const res = await axios.post("/accountsinfo", { userToken });
       if (res.data) {
         if (res.data.error) {
           toast.error(res.data.error);
