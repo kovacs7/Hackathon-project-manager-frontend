@@ -16,7 +16,8 @@ import Chat from "./components/App/chat/Chat.jsx";
 import Timeline from "./components/App/timeline/Timeline.jsx";
 import Canvas from "./components/App/canvas/Canvas.jsx";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL =
+  "https://hackathon-project-manager-backend.onrender.com";
 axios.defaults.withCredentials = true;
 
 
