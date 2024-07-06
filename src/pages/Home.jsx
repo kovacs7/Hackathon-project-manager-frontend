@@ -6,6 +6,7 @@ import NavBar from "../components/NavBar/NavBar";
 import { useEffect } from "react";
 import useAccountData from "../store/authStore";
 import Project from "../components/Dashboard/Project";
+import Loading from "../components/Home/Loading";
 
 const Home = () => {
   const { data, getAccountData } = useAccountData();
@@ -14,14 +15,17 @@ const Home = () => {
   }, [getAccountData]);
   return (
     <>
+      <NavBar />
       {data ? (
-        <>
-          <NavBar />
-          <Project />
-        </>
+        Object.keys(data).length === 0 ? (
+          <Loading />
+        ) : (
+          <>
+            <Project />
+          </>
+        )
       ) : (
         <>
-          <NavBar />
           <Hero />
           <Features />
           <Faqs />
