@@ -12,7 +12,6 @@ const Home = () => {
   useEffect(() => {
     getAccountData();
   }, [getAccountData]);
-  console.log(data)
   return (
     <>
       {data ? (
