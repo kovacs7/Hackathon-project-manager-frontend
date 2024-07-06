@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo2 from "../../assets/Logo2.svg";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const AppMenu = () => {
   const navigate = useNavigate()
@@ -19,6 +20,7 @@ const AppMenu = () => {
 
   const removeToken = () => {
     localStorage.removeItem("userToken");
+    toast.success("Successfully Logged Out.");
     navigate("/");
   };
 

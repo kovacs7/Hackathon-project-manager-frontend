@@ -1,16 +1,27 @@
 import Logo from "../../assets/Logo.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useAccountData from "../../store/authStore";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
   const { data, getAccountData } = useAccountData();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     getAccountData();
   }, [getAccountData]);
-  
+
+  const removeToken = () => {
+    localStorage.removeItem("userToken");
+    toast.success("Successfully Logged Out.");
+    setIsModalOpen(false);
+    window.location.reload();
+  };
+
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
+
   return (
     <>
       <header className="px-4 pb-4 pt-6 text-gray-800" id="nav">
@@ -52,10 +63,37 @@ const NavBar = () => {
 
           <div className="flex items-center md:space-x-4">
             {data ? (
-              <p className="text-gray-50 text-md md:block hidden font-headerFonts">
-                Hi, {data.name ? capitalizeFirstLetter(data.name) : null} !{" "}
-                <span className="text-2xl">👋</span>
-              </p>
+              <div className="flex flex-wrap gap-4 md:gap-8 items-center justify-center">
+                <p className="text-gray-50 text-md md:block hidden font-headerFonts">
+                  Hi, {data.name ? capitalizeFirstLetter(data.name) : null} !{" "}
+                  <span className="text-2xl">👋</span>
+                </p>
+                <div className="md:block hidden">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="group relative flex w-full justify-center rounded-lg px-1 py-1 text-sm bg-indigo-50 text-indigo-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-5 opacity-75"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      />
+                    </svg>
+
+                    <span className="invisible absolute start-full -bottom-1/2 ms-4 translate-y-5 -translate-x-full rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
+                      Logout
+                    </span>
+                  </button>
+                </div>
+              </div>
             ) : (
               <>
                 <a
@@ -96,6 +134,40 @@ const NavBar = () => {
           </div>
         </div>
       </header>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-400 bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-10">
+          <div className="flex flex-col max-w-md gap-2 p-6 rounded-md shadow-md dark:bg-gray-50 text-gray-700">
+            <p className="text-xl font-medium leading-tight tracking-wide text-center">
+              Do you want to Log Out?
+            </p>
+            <p className="flex-1 text-gray-600">
+              Please leave a review for us. 🥹{" "}
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="font-light text-sm text-indigo-600"
+              >
+                feedback form.
+              </a>
+            </p>
+            <div className="flex flex-col justify-center gap-3 mt-6 sm:flex-row">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="px-6 py-2 rounded-lg bg-indigo-100"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={removeToken}
+                className="px-6 py-2 rounded-lg shadow-sm bg-indigo-500 text-gray-50"
+              >
+                Agree
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
