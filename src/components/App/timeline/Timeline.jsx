@@ -36,30 +36,33 @@ const Timeline = () => {
           Timeline For {projectInfo.title}
         </p>
         <div className="flex flex-wrap gap-4">
-          <button
-            className="group relative inline-block text-sm font-medium text-white focus:outline-none"
-            onClick={() => setIsReadModeOpen(false)}
-          >
-            <span className="absolute inset-0 border-2 border-indigo-500 group-active:border-indigo-600 rounded-lg"></span>
-            <span className="block border border-indigo-600 bg-indigo-500 px-1 py-1 transition-transform active:border-indigo-400 active:bg-indigo-400 group-hover:-translate-x-1 group-hover:-translate-y-1 rounded-lg">
-              <div className="flex items-center gap-2">
-                <PencilRuler size={18} />
-                <p className="sm:block hidden pr-1">Edit mode</p>
-              </div>
-            </span>
-          </button>
-          <button
-            className="group relative inline-block text-sm font-medium text-white focus:outline-none"
-            onClick={() => setIsReadModeOpen(true)}
-          >
-            <span className="absolute inset-0 border-2 border-indigo-500 group-active:border-indigo-600 rounded-lg"></span>
-            <span className="block border border-indigo-600 bg-indigo-500 px-1 py-1 transition-transform active:border-indigo-400 active:bg-indigo-400 group-hover:-translate-x-1 group-hover:-translate-y-1 rounded-lg">
-              <div className="flex items-center gap-2">
-                <BookCheck size={18} />
-                <p className="sm:block hidden pr-1">Read mode</p>
-              </div>
-            </span>
-          </button>
+          {isReadModeOpen ? (
+            <button
+              className="group relative inline-block text-sm font-medium text-white focus:outline-none"
+              onClick={() => setIsReadModeOpen(false)}
+            >
+              <span className="absolute inset-0 border-2 border-indigo-500 group-active:border-indigo-600 rounded-lg"></span>
+              <span className="block border border-indigo-600 bg-indigo-500 px-1 py-1 transition-transform active:border-indigo-400 active:bg-indigo-400 group-hover:-translate-x-1 group-hover:-translate-y-1 rounded-lg">
+                <div className="flex items-center gap-2">
+                  <PencilRuler size={18} />
+                  <p className="sm:block hidden pr-1">Edit mode</p>
+                </div>
+              </span>
+            </button>
+          ) : (
+            <button
+              className="group relative inline-block text-sm font-medium text-white focus:outline-none"
+              onClick={() => setIsReadModeOpen(true)}
+            >
+              <span className="absolute inset-0 border-2 border-indigo-500 group-active:border-indigo-600 rounded-lg"></span>
+              <span className="block border border-indigo-600 bg-indigo-500 px-1 py-1 transition-transform active:border-indigo-400 active:bg-indigo-400 group-hover:-translate-x-1 group-hover:-translate-y-1 rounded-lg">
+                <div className="flex items-center gap-2">
+                  <BookCheck size={18} />
+                  <p className="sm:block hidden pr-1">Read mode</p>
+                </div>
+              </span>
+            </button>
+          )}
         </div>
       </h2>
 

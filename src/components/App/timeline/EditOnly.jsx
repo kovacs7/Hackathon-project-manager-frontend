@@ -99,7 +99,7 @@ const EditOnly = ({ projectId }) => {
     <>
       <section className="bg-white text-gray-800 max-h-custom h-custom overflow-y-auto m-4 relative">
         {/* create button */}
-        <div className="absolute top-3 right-3">
+        <div className="top-3 translate-x-[80%] sticky">
           <button
             className="group relative inline-block text-sm font-medium text-white focus:outline-none"
             onClick={() => setIsModalOpen(true)}
