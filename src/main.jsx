@@ -15,6 +15,8 @@ import Task from "./components/App/Tasks/Task.jsx";
 import Chat from "./components/App/chat/Chat.jsx";
 import Timeline from "./components/App/timeline/Timeline.jsx";
 import Canvas from "./components/App/canvas/Canvas.jsx";
+import CallRoom from "./components/App/callroom/CallRoom.jsx";
+import VideoCall from "./components/App/videocall/VideoCall.jsx";
 
 axios.defaults.baseURL =
   "https://hackathon-project-manager-backend.onrender.com";
@@ -34,6 +36,14 @@ const router = createBrowserRouter(
         <Route
           path="/app-dashboard/:projectId/timeline"
           element={<Timeline />}
+        />
+        <Route
+          path="/app-dashboard/:projectId/callroom"
+          element={<CallRoom/>}
+        />
+        <Route
+          path="/app-dashboard/:projectId/videocall"
+          element={<VideoCall/>}
         />
       </Route>
     </>

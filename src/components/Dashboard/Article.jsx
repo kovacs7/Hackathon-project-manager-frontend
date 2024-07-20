@@ -164,12 +164,18 @@ const Article = ({ project, data }) => {
                         Timeline
                       </Link>
 
-                      <Link className="whitespace-nowrap rounded-md bg-purple-100 px-2.5 py-0.5 text-sm text-purple-600 flex justify-center items-center gap-1">
+                      <Link
+                        to={`/app-dashboard/${project._id}/callroom`}
+                        className="whitespace-nowrap rounded-md bg-purple-100 px-2.5 py-0.5 text-sm text-purple-600 flex justify-center items-center gap-1"
+                      >
                         <Headset size={16} />
                         Call
                       </Link>
 
-                      <Link className="whitespace-nowrap rounded-md bg-purple-100 px-2.5 py-0.5 text-sm text-purple-600 flex justify-center items-center gap-1">
+                      <Link
+                        to={`/app-dashboard/${project._id}/videocall`}
+                        className="whitespace-nowrap rounded-md bg-purple-100 px-2.5 py-0.5 text-sm text-purple-600 flex justify-center items-center gap-1"
+                      >
                         <Video size={16} />
                         Video call
                       </Link>

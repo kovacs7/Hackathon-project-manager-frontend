@@ -102,8 +102,8 @@ const AppMenu = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={`/app-dashboard/${projectId}/callroom`}
                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <Headset size={24} />
@@ -111,11 +111,11 @@ const AppMenu = () => {
                     <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible z-10">
                       Call Room
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={`/app-dashboard/${projectId}/videocall`}
                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <Video size={24} />
@@ -123,7 +123,7 @@ const AppMenu = () => {
                     <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible z-10">
                       Video call
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -175,10 +175,16 @@ const AppMenu = () => {
               </a>
             </p>
             <div className="flex flex-col justify-center gap-3 mt-6 sm:flex-row">
-              <button onClick={() => setIsModalOpen(false)} className="px-6 py-2 rounded-lg bg-indigo-100">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="px-6 py-2 rounded-lg bg-indigo-100"
+              >
                 Cancel
               </button>
-              <button onClick={removeToken} className="px-6 py-2 rounded-lg shadow-sm bg-indigo-500 text-gray-50">
+              <button
+                onClick={removeToken}
+                className="px-6 py-2 rounded-lg shadow-sm bg-indigo-500 text-gray-50"
+              >
                 Agree
               </button>
             </div>
