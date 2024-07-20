@@ -117,6 +117,54 @@ const Features = () => {
                 </dd>
               </div>
             </div>
+            <div className="flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+                className="flex-shrink-0 w-6 h-6 text-violet-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <div className="ml-3">
+                <dt className="text-lg font-medium">Call Room</dt>
+                <dd className="mt-2 dark:text-gray-600">
+                  Create dedicated call rooms for uninterrupted voice
+                  communication, ensuring efficient and clear team coordination.
+                </dd>
+              </div>
+            </div>
+            <div className="flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+                className="flex-shrink-0 w-6 h-6 text-violet-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <div className="ml-3">
+                <dt className="text-lg font-medium">Video Calling</dt>
+                <dd className="mt-2 dark:text-gray-600">
+                  Seamlessly connect with your team through integrated video
+                  calls for real-time collaboration and discussions.
+                </dd>
+              </div>
+            </div>
           </dl>
         </div>
       </div>
