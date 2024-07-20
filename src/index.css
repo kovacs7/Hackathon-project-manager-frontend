@@ -69,3 +69,23 @@
   max-height: calc(var(--initial-vh) - 150px);
 }
 
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8e89fe #8e89fe;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #8e89fe;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8e89fe;
+  border-radius: 20px;
+  border: 3px solid #8e89fe;
+}
