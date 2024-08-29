@@ -2,7 +2,7 @@ import LOGIN from "../../assets/SIGNUP.webp"
 
 const Footer = () => {
   return (
-    <footer className="bg-white lg:grid lg:grid-cols-5 max-w-[1800px] mx-auto">
+    <footer className="bg-white lg:grid lg:grid-cols-5 max-w-[2400px] mx-auto">
       <div className="relative block h-48 lg:col-span-2 lg:h-full">
         <img
           src={LOGIN}
